@@ -4,10 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Cart extends Model
 {
-    public $table = 'events';
+    public $table = 'shopping_carts';
     public $guarded = [];
-
-
 }

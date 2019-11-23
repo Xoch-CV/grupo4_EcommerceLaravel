@@ -15,7 +15,7 @@ class EventsController extends Controller
     public function index(Request $request)
     {
         if($request->has('q')){
-          $events = Event::where('title', 'like', '%' . $request->get('q') . '%')->paginate(10)->appends($request ->only('q'));
+          $events = Event::where('name', 'like', '%' . $request->get('q') . '%')->paginate(10)->appends($request ->only('q'));
         } else{
         $events = Event::paginate(10)->appends($request->only('q'));
         }
@@ -42,10 +42,12 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         $reglas = [
-          "title" => "required|string|min:1|max:255",
-          "rating" => "required|numeric|min:0|max:10",
-          "awards" => "required|integer|min:0",
-          "release_date" =>"required|date"
+          "name" => "required|string|min:1|max:255",
+          "description" => "required|string|min:1|max:255",
+          "initial_date" => "required|date",
+          "ending_date" =>"required|date",
+          "price"=> "required|numeric",
+          "category_id"=>"required|integer|min:1|max:5"
         ];
         $mensaje = [
           "required" => "El campo :attribute es obligatorio.",
@@ -94,10 +96,12 @@ class EventsController extends Controller
     public function update(Request $req, $idevent)
     {
       $reglas = [
-        "title" => "required|string|min:1|max:255",
-        "rating" => "required|numeric|min:0|max:10",
-        "awards" => "required|integer|min:0",
-        "release_date" =>"required|date"
+        "name" => "required|string|min:1|max:255",
+        "description" => "required|string|min:1|max:255",
+        "initial_date" => "required|date",
+        "ending_date" =>"required|date",
+        "price"=> "required|numeric",
+        "category_id"=>"required|integer|min:1|max:5"
       ];
       $mensaje = [
         "required" => "El campo :attribute es obligatorio.",

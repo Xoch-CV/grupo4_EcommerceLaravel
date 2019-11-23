@@ -16,7 +16,7 @@
       </div>
     </form>
       @foreach ($events as $event)
-      <a href="/events/{{$event->id}}">{{$event->title}}</a><br>
+      <a href="/events/{{$event->id}}">{{$event->name}}</a><br>
      @endforeach
      {{$events->links()}}
   </body>

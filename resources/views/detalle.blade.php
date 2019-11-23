@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    <h1>Detalle de la pelicula {{$event->title}}</h1>
+    <h1>Detalle del evento {{$event->name}}</h1>
     <form class="" action="/events/{{$event->id}}" method="post">
       @method('DELETE')
       @csrf
