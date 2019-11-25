@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+@extends('layouts.layoutMain')
+
+@section('content')
     <h1>Detalle del evento {{$event->name}}</h1>
     <form class="" action="/events/{{$event->id}}" method="post">
       @method('DELETE')
@@ -14,5 +10,4 @@
 
     </form>
     <a href="/events/{{$event->id}}/edit">Editar</a>
-  </body>
-</html>
+@endsection

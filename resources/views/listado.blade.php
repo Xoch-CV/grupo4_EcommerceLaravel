@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-
-  <body>
+@extends('layouts.layoutMain')
+@section('content')
     <form class="" action="" method="get">
       @csrf
       <div class="">
@@ -19,5 +13,4 @@
       <a href="/events/{{$event->id}}">{{$event->name}}</a><br>
      @endforeach
      {{$events->links()}}
-  </body>
-</html>
+@endsection
