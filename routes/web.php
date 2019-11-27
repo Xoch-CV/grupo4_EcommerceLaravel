@@ -10,13 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('main');
-});
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/', 'CategoriesController@index');
 
 Route::get('/events', 'EventsController@index');
 Route::get('/events/new', 'EventsController@create');
@@ -25,7 +19,7 @@ Route::get('/events/{event}','EventsController@show');
 Route::delete('/events/{idevent}','EventsController@destroy');
 Route::get('/events/{event}/edit','EventsController@edit');
 Route::patch('/events/{idevent}', 'EventsController@update');
-
+Route::get('/categories/{category}', 'CategoriesController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

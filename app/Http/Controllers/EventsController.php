@@ -75,6 +75,12 @@ class EventsController extends Controller
         return view("/detalle")->with("event", $event);
     }
 
+    /*public function showList(Event $event)
+    {
+        return view("/events")->with("event", $event);
+    }
+    */
+
     /**
      * Show the form for editing the specified resource.
      *

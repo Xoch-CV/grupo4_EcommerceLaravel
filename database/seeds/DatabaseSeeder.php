@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //$this->call(unEventoPrueba::class);
-        factory(App\Event::class,15)->create();
+        //factory(App\Event::class,15)->create();
+        $this->call(datosCategorias::class);
     }
 }

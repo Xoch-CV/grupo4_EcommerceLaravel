@@ -53,18 +53,18 @@
         </div>
         </form>
 
-
         <div class="row">
           <div class="col-lg-1">
           </div>
           <div class="col-lg-10">
             <ul class="row principal">
-              <li class="col-6 col-sm-6 col-md-4 col-lg-2"><a href="#"><i class="fas fa-compact-disc fa-4x iconos"></i><h3>conciertos</h3></a></li>
-              <li class="col-6 col-sm-6 col-md-4 col-lg-2"><a href="#"><i class="fas fa-film fa-4x iconos"></i><h3>cine</h3></a></li>
-              <li class="col-6 col-sm-6 col-md-4 col-lg-2"><a href="#"><i class="fas fa-theater-masks fa-4x iconos"></i><h3>shows</h3></a></li>
-              <li class="col-6 col-sm-6 col-md-4 col-lg-2"><a href="#"><i class="fas fa-palette fa-4x iconos"></i><h3>muestras</h3></a></li>
-              <li class="col-6 col-sm-6 col-md-4 col-lg-2"><a href="#"><i class="fas fa-futbol fa-4x iconos"></i><h3>deportes</h3></a></li>
-              <li class="col-6 col-sm-6 col-md-4 col-lg-2"><a href="#"><i class="fas fa-hamburger fa-4x iconos"></i><h3>gastronomía</h3></a></li>
+            @foreach ($categories as $category)
+              <li class="col-6 col-sm-6 col-md-4 col-lg-2">
+              <a href="{{ url('categories/' . $category->id) }}">
+                <i class="{{$category->icono}}"></i><h3>{{$category->name}}</h3>
+              </a>
+              </li>
+            @endforeach
             </ul>
           </div>
         </div>
