@@ -15,6 +15,8 @@ class IconoCategoria extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             $table->string('icono');
+            
+
         });
     }
 

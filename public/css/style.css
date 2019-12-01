@@ -1,9 +1,20 @@
+html{
+  height: 100%;
+}
 body{
+  min-height: 100%;
+  position: relative;
   background-color: #000;
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
   color: #fff;
 }
+body::after {
+  content: '';
+  display: block;
+  height: 200px; /* Set same as footer's height */
+}
+
 h1{
   color: #581845;
   font-weight: 900;
@@ -14,7 +25,8 @@ h1{
   color:#fff;
 }
 h2{
-  font-size: 3em;
+  font-size: 2em;
+  font-weight: bold;
 }
 h3{
   font-size: 1.1em;
@@ -49,6 +61,9 @@ h6{
   text-transform: uppercase;
 }
 
+.row{
+  margin: 0 auto;
+}
 
 ul.principal{
   height: auto;
@@ -105,15 +120,15 @@ div.column{
  width: 450px;
  vertical-align: middle;
 }
-form.ui.form.segment{
- align: center;
- box-sizing: border-box;
- display: block;
- flex-direction:column;
- max-width: 450px;
- position: relative;
- text-align: left;
-}
+/* form.ui.form.segment{
+  align: center;
+  box-sizing: border-box;
+  display: block;
+  flex-direction:column;
+  max-width: 450px;
+  position: relative;
+  text-align: left;
+ } */
 #login{
   display: flex;
 }
@@ -147,9 +162,9 @@ section{
 }
 input{
   width: 100%;
-  display: block;
+  /*display: block;*/
   border: none;
-  border-bottom: 1px solid #999;
+  border-bottom: #fff solid 1px;
   padding: 6px 30px;
   font-family: 'Montserrat' sans-serif;
   box-sizing: border-box;
@@ -158,6 +173,7 @@ input{
 .carousel-item {
   height: 90vh;
   min-height: 350px;
+  text-transform: uppercase;
 }
 img{
   display:block;
@@ -165,36 +181,66 @@ img{
 }
 .slide{
   border-top: 2px solid #581845;
-  border-bottom: 2px solid #581845;
-}
-.container{
-    width: 100%;
+  background: linear-gradient(70deg, black, white);
 }
 input[type="text"]{
   width: 100%;
-  border-bottom: 1px solid #999;
   box-sizing: border-box;
   margin: 30px 0 0 0;
   padding: 8px;
+  background: none;
 }
 input[type="text"]:focus{
-  border-bottom: 1px solid #999;
-  box-shadow: 0 0 10px 0 #581845;
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+input[type="text"]::placeholder{
+  color:#aaa;
+  font-style: oblique;
 }
 .inputWithIcon input[type="text"]{
-  padding-left: 40px;
+  padding-left: 50px;
+  color: #fff;
+
 }
 .inputWithIcon{
   position: relative;
   text-align: center;
+  float: left;
+  
 }
 .inputWithIcon i{
   position: absolute;
   left: 0;
   top: 35px;
-  padding: 9px 8px;
-  color: #aaa;
+  padding: 9px 30px;
+  color: #fff;
   transition: .9s;
+}
+.buscador{
+  margin: 30px auto;
+}
+.buscador .boton{
+  padding-top:30px;
+  float:right;
+}
+.buscador .button{
+  border-radius: 10px;
+  background-color:#581845;
+  color: white;
+  border: none;
+  height: 43px;
+}
+.carousel-caption .button{
+  border-radius: 10px;
+  width: 200px;
+  background-color:#581845;
+  color: white;
+  border: none;
+  height: 43px;
 }
 .cards{
   flex-wrap: wrap;
@@ -232,10 +278,13 @@ input[type="text"]:focus{
   text-decoration: none;
   transition: .5s;
 }
-footer{
-  height: 30vh;
-  overflow: hidden;
+footer {
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  height: 200px;
   padding: 30px 0;
+  margin-top: -200px;
 }
 ul.footer{
   margin: 15px 0 0 0;
@@ -253,6 +302,22 @@ ul.footer li a{
 ul.footer li a:hover{
   color: #fff;
   text-decoration: none;
+}
+.carousel-caption{
+  top:0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.listado{
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  text-align: center;
+}
+#listado a{
+  text-decoration: none;
+  color: #fff;
 }
 @media (min-width: 768px){
   /* Breakpoints 576 768 992 1200 */
@@ -287,7 +352,11 @@ ul.footer li a:hover{
     text-align: left;
   }
   h2{
-    font-size: 5em;
+    font-size: 4em;
+    font-weight: bold;
+  }
+  .carousel-caption h2{
+    text-shadow: 5px 5px 15px #0a0e27;
   }
   h3{
     font-size: 1.4em;
@@ -315,7 +384,7 @@ ul.footer li a:hover{
     font-size: 1em;
   }
   ul.principal{
-    margin: 100px 0 100px 0;
+    margin: 50px 0 50px 0;
   }
   ul.principal li{
     margin-bottom: 0;
@@ -324,4 +393,14 @@ ul.footer li a:hover{
   .dropdown-toggle{
     margin-top: 0.4em;
   }
-}
+  .carousel-caption{
+    top:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left:55%;
+    text-align: left;
+    float: right;
+  }
+    
+  }

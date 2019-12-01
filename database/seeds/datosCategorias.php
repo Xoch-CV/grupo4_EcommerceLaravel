@@ -11,14 +11,6 @@ class datosCategorias extends Seeder
      */
     public function run()
     {
-        $name = 'categories';
-
-        DB::table($name)->truncate();
-
-        foreach ($categories as $c) {
-            DB::table($name)->insert($c);
-        }
-
 
         DB::table('categories')->insert([
             'id' => 1,
