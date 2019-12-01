@@ -10,7 +10,7 @@ class Category extends Model
     public $guarded = [];
 
     public function events(){
-        return $this->hasMany(Event::class,'id');
+        return $this->hasMany(Event::class);
     }
 }
 

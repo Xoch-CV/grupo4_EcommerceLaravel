@@ -1,4 +1,4 @@
-<form class="" action="/events" method="post">
+<form class="" action="/events" method="post" enctype="multipart/form-data">
   @csrf
   <div class="">
     <label for="name">Nombre</label>
@@ -24,6 +24,9 @@
     <label for="category_id">Categoría</label>
     <input type="text" name="category_id" value="{{old('category_id')}}"><br>
     <p>{{$errors->first('category_id')}}</p>
+
+    <label for="">Imagen</label>
+    <input type="file" name="imagen" value="">
 
   </div>
   <div class="">

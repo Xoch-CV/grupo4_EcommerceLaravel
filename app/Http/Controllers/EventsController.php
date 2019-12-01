@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use APP\User;
 
 class EventsController extends Controller
 {
@@ -15,10 +16,11 @@ class EventsController extends Controller
     public function index(Request $request)
     {
         if($request->has('q')){
-          $events = Event::where('name', 'like', '%' . $request->get('q') . '%')->paginate(10)->appends($request ->only('q'));
-        } else{
-        $events = Event::paginate(10)->appends($request->only('q'));
+          $events = Event::where('name', 'like', '%' . $request->get('q') . '%')->paginate(2)->appends($request ->only('q'));
         }
+        else{
+        $events = Event::paginate(2)->appends($request->only('q'));
+        } 
         return view("/listado")->with("events", $events);
         //return view("listado", compact("events"));
     }
@@ -30,6 +32,8 @@ class EventsController extends Controller
      */
     public function create()
     {
+      $this->authorize('create', Event::class);
+
         return view('events.create');
     }
 
@@ -47,7 +51,8 @@ class EventsController extends Controller
           "initial_date" => "required|date",
           "ending_date" =>"required|date",
           "price"=> "required|numeric",
-          "category_id"=>"required|integer|min:1|max:5"
+          "category_id"=>"required|integer|min:1|max:5",
+          "image" => "file",
         ];
         $mensaje = [
           "required" => "El campo :attribute es obligatorio.",
@@ -59,6 +64,10 @@ class EventsController extends Controller
         ];
 
         $this->validate($request, $reglas, $mensaje);
+
+        /*$ruta = $request->file('image')->store('public');
+        $nombreArchivo = basename($ruta);
+        */
         Event::create($request->all());
 
         return redirect ('/events');
@@ -72,14 +81,11 @@ class EventsController extends Controller
      */
     public function show(Event $event)
     {
-        return view("/detalle")->with("event", $event);
-    }
+     
+      //$this->authorize('edit', $event);
+      return view("/detalle")->with("event", $event);
 
-    /*public function showList(Event $event)
-    {
-        return view("/events")->with("event", $event);
     }
-    */
 
     /**
      * Show the form for editing the specified resource.
@@ -89,6 +95,8 @@ class EventsController extends Controller
      */
     public function edit(Event $event)
     {
+      $this->authorize('edit', $event);
+
         return view('events.edit')->with("event", $event);
     }
 
@@ -133,9 +141,12 @@ class EventsController extends Controller
      */
     public function destroy(Request $req)
     {
-      $id =$req['id'];
-      $events=Event::find($id);
+      $events=Event::find($req->get('id'));
+
+      $this->authorize('destroy', $events);
+        
       $events->delete();
+
       return redirect('/events');
     }
     }

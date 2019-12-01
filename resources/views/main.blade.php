@@ -60,7 +60,7 @@
             <ul class="row principal">
             @foreach ($categories as $category)
               <li class="col-6 col-sm-6 col-md-4 col-lg-2">
-              <a href="{{ url('categories/' . $category->id) }}">
+              <a href="{{ url('categories/' . $category->name) }}">
                 <i class="{{$category->icono}}"></i><h3>{{$category->name}}</h3>
               </a>
               </li>

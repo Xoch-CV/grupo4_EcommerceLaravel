@@ -9,8 +9,9 @@
         <input type="submit" value='Buscar'></input>
       </div>
     </form>
+    {{--Imprimo los eventos con su link de detalle--}}
       @foreach ($events as $event)
       <a href="/events/{{$event->id}}">{{$event->name}}</a><br>
      @endforeach
-     {{$events->links()}}
+     {{--$events->links()--}}
 @endsection

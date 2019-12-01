@@ -11,8 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //$this->call(unEventoPrueba::class);
+        $this->call(unEventoPrueba::class);
         //factory(App\Event::class,15)->create();
-        $this->call(datosCategorias::class);
+        //$this->call(icono_categoria::class);
+        //$this->call(admin_user::class);
     }
 }
