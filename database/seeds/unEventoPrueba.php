@@ -19,9 +19,9 @@ class unEventoPrueba extends Seeder
             'ending_date' => '2019-12-01',
             'price' => 350,
             'category_id' => 6,
+            'user_id' => 1,
             'created_at' => now(),
             'updated_at' => now(),
-            'image' => 'storage\FotoPortada_in.jpeg'
         ]);
     }
 }

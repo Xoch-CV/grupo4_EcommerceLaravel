@@ -13,14 +13,17 @@ class NewTable extends Migration
      */
     public function up()
     {
-        /*Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->string('surname');
+            $table->integer('role')->nullable();
         });
 
         Schema::create('categories', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('icono');
             $table->timestamps();
+ 
         });
 
         Schema::create('events', function (Blueprint $table){
@@ -29,22 +32,33 @@ class NewTable extends Migration
             $table->string('description');
             $table->datetime('initial_date');
             $table->datetime('ending_date');
-            $table->float('price');
+            $table->float('price')->nullable();
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('category');
+            $table->unsignedBigInteger('user_id');
+            $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('user_id')->references('id')->on('users');
+        });
+
+        Schema::create('carts', function (Blueprint $table){
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->float('total_price');
             $table->timestamps();
         });
 
-        Schema::create('shopping', function (Blueprint $table){
+        Schema::create('cart_event', function (Blueprint $table){
             $table->bigIncrements('id');
-            $table->datetime('operation_date');
-            $table->float('purchase_price');
-            $table->unsignedBigInteger('events_id');
-            $table->foreign('events_id')->references('id')->on('events');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->Integer('qty');
+            $table->unsignedBigInteger('cart_id');
+            $table->unsignedBigInteger('event_id');
+            $table->float('price');
             $table->timestamps();
-        });*/
+
+            $table->foreign('cart_id')->references('id')->on('carts');
+            $table->foreign('event_id')->references('id')->on('events');
+        });
     }
 
     /**
@@ -54,5 +68,14 @@ class NewTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('cart_event');
+        Schema::dropIfExists('carts');
+        Schema::dropIfExists('events');
+        Schema::dropIfExists('categories');
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('surname');
+            $table->dropColumn('role');
+        });
     }
 }

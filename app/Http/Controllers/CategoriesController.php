@@ -42,10 +42,4 @@ class CategoriesController extends Controller
             );
     }
 
-    public function test()
-    {
-        return view('compra.compra');
-    }
-
-
 }

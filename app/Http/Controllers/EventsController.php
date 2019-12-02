@@ -51,7 +51,7 @@ class EventsController extends Controller
           "initial_date" => "required|date",
           "ending_date" =>"required|date",
           "price"=> "required|numeric",
-          "category_id"=>"required|integer|min:1|max:5",
+          "category_name"=>"required|string|min:1|max:255",
           "image" => "file",
         ];
         $mensaje = [

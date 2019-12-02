@@ -21,9 +21,9 @@
     <input type="text" name="price" value="{{old('price')}}"><br>
     <p>{{$errors->first('price')}}</p>
 
-    <label for="category_id">Categoría</label>
-    <input type="text" name="category_id" value="{{old('category_id')}}"><br>
-    <p>{{$errors->first('category_id')}}</p>
+    <label for="category_name">Categoría</label>
+    <input type="text" name="category_id" value="{{old('category_name')}}"><br>
+    <p>{{$errors->first('category_name')}}</p>
 
     <label for="">Imagen</label>
     <input type="file" name="imagen" value="">
