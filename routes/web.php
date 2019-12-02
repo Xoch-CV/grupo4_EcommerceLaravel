@@ -13,13 +13,17 @@
 Route::get('/', 'CategoriesController@index');
 
 Route::get('/events', 'EventsController@index');
-Route::get('/events/new', 'EventsController@create');
+Route::get('/events/new', 'EventsController@create');//->middleware('auth','role:1');
 Route::post('/events', 'EventsController@store'); //419 el form falta directiva @csrf
 Route::get('/events/{event}','EventsController@show');
-Route::delete('/events/{idevent}','EventsController@destroy');
-Route::get('/events/{event}/edit','EventsController@edit');
+Route::delete('/events/{idevent}','EventsController@destroy');//->middleware('auth','role:1');
+Route::get('/events/{event}/edit','EventsController@edit');//->middleware('auth','role:1');
 Route::patch('/events/{idevent}', 'EventsController@update');
-Route::get('/categories/{category}', 'CategoriesController@show');
+//Route::get('/', 'CategoriesController@recomendados'); para mostrar eventos en main
+Route::get('/categories/{categoryName}', 'CategoriesController@show');
+Route::get('/categories/{categoryName}', 'CategoriesController@indexReq');
+Route::get('/compra/compra', 'CategoriesController@test');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

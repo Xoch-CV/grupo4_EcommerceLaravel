@@ -14,7 +14,7 @@
                     <div class="row">
                          <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
                             <label for="name"><i class="fas fa-user"></i></label>
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus placeholder="Nombre"><br>
+                            <input id="name" type="text" class=" @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus placeholder="Nombre"><br>
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -23,7 +23,7 @@
                          </div>
                         <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
                             <label for="surname"><i class="fas fa-user"></i></label>
-                            <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" autocomplete="surname" autofocus placeholder="Apellido"><br>
+                            <input id="surname" type="text" class=" @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" autocomplete="surname" autofocus placeholder="Apellido"><br>
                             @error('surname')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -35,7 +35,7 @@
                     <div class="row">
                         <div class="col-11 col-sm-12 col-md-10 col-lg-11 inputregister">
                             <label for="email"><i class="fas fa-envelope"></i></label>
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="joe@schmoe.com"><br>
+                            <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="joe@schmoe.com"><br>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
                             <label for="pass"><i class="fas fa-unlock"></i></label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Mínimo 8 caracteres"><br>
+                            <input id="password" type="password" class=" @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Mínimo 8 caracteres"><br>
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
                             <label for="re-pass"><i class="fas fa-lock"></i></label>
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" placeholder="Mínimo 8 caracteres"><br>
+                            <input id="password-confirm" type="password" class="" name="password_confirmation" autocomplete="new-password" placeholder="Mínimo 8 caracteres"><br>
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -68,7 +68,7 @@
                     <div class="row">
                         <div class="col-11 col-sm-12 col-md-10 col-lg-11 checkbox">
                             <input type="checkbox" name="checkbox" value="checked"/>
-                            <span>Estoy de acuerdo con los  <a href="#" class="form-control">Términos y condiciones.</span></a><br>
+                            <span>Estoy de acuerdo con los  <a href="#" class="">Términos y condiciones.</span></a><br>
                             @error('checkbox')
                             <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

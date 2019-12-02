@@ -1,12 +1,27 @@
 @extends('layouts.layoutMain')
 @section('content')
+
+<div class="col-8 buscador">
+  <div class="row">
+    <form class="" action="/events/{{request('q')}}" method="get" style="width:100%; align:center">
+    @csrf
+      <div class="inputWithIcon col-12 col-sm-12 col-md-8 col-lg-9" >
+        <input type="text" name="q" value="{{request('q')}}" placeholder="Qué querés ir a ver...">
+          <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-3 boton">
+        <input type="submit" value='Buscar' class="button"></input>
+      </div>
+    </form>
+  </div>
+</div>
    
 
 
     <section>
       <div class="divisor col-6 col-lg-2">
       </div>
-      <h4>dfbzfd</h4>
+      <h4>NOMBRE CATEGORIA</h4>
       <div class="row">
         <div class="cards col-12">
         @foreach ($events as $event)
@@ -20,22 +35,7 @@
           @endforeach
         </div>
       </div>
+      
     </section>
-     
-
-    <div class="col-8 buscador">
-      <div class="row">
-        <form class="" action="/events/{{request('q')}}" method="get" style="width:100%; align:center">
-          @csrf
-          <div class="inputWithIcon col-12 col-sm-12 col-md-8 col-lg-9" >
-            <input type="text" name="q" value="{{request('q')}}" placeholder="Qué querés ir a ver...">
-            <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
-          </div>
-          <div class="col-12 col-sm-12 col-md-4 col-lg-3 boton">
-            <input type="submit" value='Buscar' class="button"></input>
-          </div>
-        </form>
-      </div>
-    </div>
-
+   
 @endsection

@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-    public $table = 'shopping_carts';
+    public $table = 'shopping';
     public $guarded = [];
 }

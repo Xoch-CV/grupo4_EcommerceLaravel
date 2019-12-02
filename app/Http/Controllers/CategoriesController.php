@@ -14,11 +14,41 @@ class CategoriesController extends Controller
         $categories = Category::all();
         return view("/main")->with("categories", $categories);
 
+    }
+
+     
+
+    public function show($categoryName)
+    {
+        $categoryName = Category::where('name', $categoryName);
+        $categoryId = Category::where('name', $categoryName)->pluck('id');
+        $events=Event::where('category_id','like',$categoryId)->paginate(6);
+        return view("/listado")->with("events", $events)->with("category", $categoryName);
     } 
 
-    public function show($categoryid)
+    public function indexReq($categoryName,Request $request)
     {
-        $events=Event::where('category_id','like',$categoryid)->paginate(6);
-        return view("/listado")->with("events", $events);
-    } 
+        $category = Category::with([
+            'events' => function ($qb) use ($request) {
+                if ($request->has('q')) {
+                    $qb->where('name', 'like', '%' . $request->get('q') . '%');
+                }
+
+                return $qb;
+            }])
+            ->where('name', $categoryName)->first();
+
+        return view("/listado")->with(
+            "events", $category->events
+                //->paginate(2)
+                //->appends($request ->only('q'))
+            );
+    }
+
+    public function test()
+    {
+        return view('compra.compra');
+    }
+
+
 }

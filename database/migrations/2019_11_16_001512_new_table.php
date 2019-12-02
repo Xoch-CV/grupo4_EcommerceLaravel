@@ -13,7 +13,7 @@ class NewTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        /*Schema::table('users', function (Blueprint $table) {
             $table->string('surname');
         });
 
@@ -35,7 +35,7 @@ class NewTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('shopping_cart', function (Blueprint $table){
+        Schema::create('shopping', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->datetime('operation_date');
             $table->float('purchase_price');
@@ -44,7 +44,7 @@ class NewTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('user');
             $table->timestamps();
-        });
+        });*/
     }
 
     /**

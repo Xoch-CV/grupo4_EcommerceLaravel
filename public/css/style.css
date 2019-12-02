@@ -40,6 +40,9 @@ h4{
   margin-bottom: 30px;
   font-weight: 600;
 }
+.detalle h4{
+  text-align: left;
+}
 h5{
   font-size: 1em;
 }
@@ -241,6 +244,31 @@ input[type="text"]::placeholder{
   color: white;
   border: none;
   height: 43px;
+}
+.detalle{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  min-height: 450px;
+}
+.detalle .button{
+  border-radius: 10px;
+  width: 200px;
+  background-color:#581845;
+  color: white;
+  border: none;
+  height: 43px;
+}
+.detalle .boton{
+  padding:30px 0 0 0;
+}
+.detalle .imagen{
+  float: rigth;
+}
+.detalle .descripcion{
+  float: right;
 }
 .cards{
   flex-wrap: wrap;
