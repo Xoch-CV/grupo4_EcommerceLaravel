@@ -250,7 +250,7 @@ input[type="text"]::placeholder{
   flex-direction: row;
   align-content: center;
   margin: 0 auto;
-  padding: 0;
+  padding: 50px 0;
   min-height: 450px;
 }
 .detalle .button{
@@ -260,12 +260,21 @@ input[type="text"]::placeholder{
   color: white;
   border: none;
   height: 43px;
+  align-items: flex-start;
+}
+.detalle .button2{
+  border-radius: 10px;
+  width: 200px;
+  background-color:#fff;
+  color: #581845;
+  border: none;
+  height: 43px;
 }
 .detalle .boton{
   padding:30px 0 0 0;
 }
 .detalle .imagen{
-  float: rigth;
+  float: left;
 }
 .detalle .descripcion{
   float: right;

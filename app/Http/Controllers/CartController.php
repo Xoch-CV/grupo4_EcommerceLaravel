@@ -3,27 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//use App\User;
+use App\Cart;
+use App\Event;
+use Auth;
 
 class CartController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
 
+    /*public function index(){
+        $agregados = Cart::all();
+        return view('compra.resumen')->with('agregados', $agregados);
+    }*/
+    
+ 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function addItem($id, Request $req)
     {
-        //
+        $cart = auth()->user()->carts()->create(['total_price' => 0]);
+
+        $item = $cart->events()->attach($id, ['qty' => 1, 'price' => 1]);
+
+        return view('compra.resumen')->with('item',$cart);
+
+//        $user = Auth::user();
+//        $agregado = $user->events()->attach($id);
+//        return view('prueba')->with("agregado",$agregado);
     }
 
     /**
@@ -68,7 +83,7 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -77,8 +92,8 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($eventId)
     {
-        //
+        
     }
 }

@@ -11,6 +11,8 @@
 |
 */
 Route::get('/', 'CategoriesController@index');
+Route::get('/categories/{categoryName}', 'CategoriesController@show');
+Route::get('/categories/{categoryName}', 'CategoriesController@indexReq');
 
 Route::get('/events', 'EventsController@index');
 Route::get('/events/new', 'EventsController@create');//->middleware('auth','role:1');
@@ -19,10 +21,11 @@ Route::get('/events/{event}','EventsController@show');
 Route::delete('/events/{idevent}','EventsController@destroy');//->middleware('auth','role:1');
 Route::get('/events/{event}/edit','EventsController@edit');//->middleware('auth','role:1');
 Route::patch('/events/{idevent}', 'EventsController@update');
-//Route::get('/', 'CategoriesController@recomendados'); para mostrar eventos en main
-Route::get('/categories/{categoryName}', 'CategoriesController@show');
-Route::get('/categories/{categoryName}', 'CategoriesController@indexReq');
-Route::get('/compra/compra', 'CategoriesController@test');
+
+
+//Route::get('/compra/resumen','CartController@index');
+Route::post('/compra/{id}','CartController@addItem');
+
 
 Auth::routes();
 

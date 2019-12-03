@@ -16,9 +16,7 @@
   </div>
 </div>
    
-
-
-    <section>
+<section>
       <div class="divisor col-6 col-lg-2">
       </div>
       <h4>NOMBRE CATEGORIA</h4>
@@ -37,5 +35,8 @@
       </div>
       
     </section>
+
+
+    
    
 @endsection
