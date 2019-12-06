@@ -63,7 +63,10 @@ h6{
   font-size: 1.5em;
   text-transform: uppercase;
 }
-
+a{
+  text-decoration: none;
+  color: #fff;
+}
 .row{
   margin: 0 auto;
 }
@@ -200,6 +203,13 @@ input[type="text"]:focus{
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
 }
+input[type="submit"]:focus{
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
 input[type="text"]::placeholder{
   color:#aaa;
   font-style: oblique;
@@ -254,21 +264,54 @@ input[type="text"]::placeholder{
   min-height: 450px;
 }
 .detalle .button{
-  border-radius: 10px;
+  /*border-radius: 10px;
   width: 200px;
   background-color:#581845;
   color: white;
   border: none;
   height: 43px;
-  align-items: flex-start;
+  align-items: flex-start;*/
+  border-radius: 50px;
+  border: none;
+  margin: 25px auto;
+  padding: 0 0 0 0;
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color:#581845;
 }
 .detalle .button2{
-  border-radius: 10px;
+  /*border-radius: 10px;
   width: 200px;
   background-color:#fff;
   color: #581845;
   border: none;
-  height: 43px;
+  height: 43px;*/
+  border: 1px solid #fff;
+  border-radius: 50px;
+  margin: 25px auto;
+  padding: 0 0 0 0;
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.detalle .button2:hover{
+  background-color: #fff;
+  text-decoration: none;
+  color: #581845;
+}
+.detalle .button:hover{
+  background-color: #fff;
+  text-decoration: none;
+  color: #581845;
 }
 .detalle .boton{
   padding:30px 0 0 0;

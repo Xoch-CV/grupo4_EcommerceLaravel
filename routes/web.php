@@ -23,8 +23,9 @@ Route::get('/events/{event}/edit','EventsController@edit');//->middleware('auth'
 Route::patch('/events/{idevent}', 'EventsController@update');
 
 
-//Route::get('/compra/resumen','CartController@index');
-Route::post('/compra/{id}','CartController@addItem');
+Route::get('/compra/resumen','CartController@index');
+//Route::post('/compra/{id}','CartController@addItem');
+
 
 
 Auth::routes();

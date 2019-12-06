@@ -17,12 +17,15 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    /*public function index(){
-        $agregados = Cart::all();
+    public function index(){
+        $user = Auth::user()->id;
+        $agregados = Cart::where('user_id',$user->id);
+        dd($agregados);
         return view('compra.resumen')->with('agregados', $agregados);
-    }*/
-    
- 
+
+    }
+
+     
     /**
      * Show the form for creating a new resource.
      *
@@ -30,16 +33,22 @@ class CartController extends Controller
      */
     public function addItem($id, Request $req)
     {
+        /*$cart = auth()->user()->carts()->create(['total_price' => 0]);
+        $item = $cart->events()->attach($id, ['qty' => 1, 'price' => 1]);*/ 
+        
+        $event = Event::find($id);
+        $qty = $req->get('quantity');
+
+        $total_event = $qty*$event->price;
+
         $cart = auth()->user()->carts()->create(['total_price' => 0]);
-
-        $item = $cart->events()->attach($id, ['qty' => 1, 'price' => 1]);
-
-        return view('compra.resumen')->with('item',$cart);
-
-//        $user = Auth::user();
-//        $agregado = $user->events()->attach($id);
-//        return view('prueba')->with("agregado",$agregado);
-    }
+        /*dd($cart);*/
+        $cart->events()->attach($id, ['qty' => $qty, 'price' => $total_event]);
+        /*dd($item);*/
+        return view('compra.resumen')->with('events', $event)
+                                     ->with('order', $cart);
+                                     /*->with('item',$item);*/
+    }                           
 
     /**
      * Store a newly created resource in storage.

@@ -21,8 +21,6 @@
     @if (Route::has('login'))
       @auth
         @if (Auth::user()->role==1)
-
-        
         <form class="" action="/events/{{$event->id}}" method="post">
           @method('DELETE')
           @csrf
@@ -31,22 +29,18 @@
         </form>
 
         <a href="/events/{{$event->id}}/edit">Editar</a>
-        @else
+        {{--@else
           <form action="/compra/compra">
           <input type="comprar entrada" value='comprar entrada' class="button"></input>
           </form>
-          @endif
-        
+          @endif--}}
         @else
-
-        <div class="row">
-
-          
+        <div class="row">          
           <form action="/compra/{{$event->id}}" method="post">
           @csrf
             <div class="">
               <label for="quantiy">Cantidad tickets</label>
-              <select name="quantity" form="">
+              <select name="quantity">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -61,26 +55,26 @@
             </div>
             <br>
             <div class="row">
-
-            <div class="col-12 col-sm-12 col-md-4 col-lg-6">
-              <input type="submit" value='Agregar al carrito' class="button"></input>
+              <div class="col-12 col-sm-12 col-md-4 col-lg-6">
+                <input type="submit" value='Agregar al carrito' class="button"></input>
+              </div>
+            </form> 
+              <div class="col-12 col-sm-12 col-md-4 col-lg-6">
+              {{--<a href="{{ url('/') }}">Ver más eventos</a>--}}
+                <a class="button2" href="{{ url('/') }}">Ver más eventos</a>
+              </div>
             </div>
 
-          </form>
-          <div class="col-12 col-sm-12 col-md-4 col-lg-6">
-          
-          <button class="button2" value="" href="{{ route('register') }}">Ver más eventos</button>
-          
-          
-          </div>
-        </div>
         </div>
         @endif
       @else
         {{--Boton comprar que redirigue al usuario visitando a loggearse para realizar comprar--}}
-        <a href="{{ route('login') }}">Agregar al carrito-sin-loguear</a>
+        {{--<a href="{{ route('login') }}">Agregar al carrito-sin-loguear</a>--}}
+          <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+          <a class="button" href="{{ route('login') }}">comprar entrada</a>
+          </div>
       @endauth
-    
+    @endif
     </div>
   </div>
 @endsection

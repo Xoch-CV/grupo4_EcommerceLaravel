@@ -17,6 +17,7 @@
     <link href="{{ asset('css/bootstrap-4.3.1-dist/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,900&display=swap" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <!--<link href="{{ asset('css/styleregister.css') }}" rel="stylesheet">-->
         
     <title>{{ config('app.name', 'Ticket') }}</title>
 </head>

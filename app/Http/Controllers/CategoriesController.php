@@ -16,8 +16,6 @@ class CategoriesController extends Controller
 
     }
 
-     
-
     public function show($categoryName)
     {
         $categoryName = Category::where('name', $categoryName);
