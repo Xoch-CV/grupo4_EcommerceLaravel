@@ -14,6 +14,12 @@ class Cart extends Model
     }
 
     public function events(){
-        return $this->belongsToMany(Event::class);
+        return $this->belongsToMany(Event::class)->withTimestamps()
+                                                ->withPivot('qty','price','total_event');
+    }
+
+    public function scopeOpen($q) 
+    {
+        return $q->whereNull('purchased_at');
     }
 }

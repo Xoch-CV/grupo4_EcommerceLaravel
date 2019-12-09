@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Cart;
 use App\Event;
 use Auth;
+use Carbon\Carbon;
 
 class CartController extends Controller
 {
@@ -17,38 +18,71 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(){
-        $user = Auth::user()->id;
-        $agregados = Cart::where('user_id',$user->id);
-        dd($agregados);
-        return view('compra.resumen')->with('agregados', $agregados);
-
+    public function cartCounts(){
+        if (Auth::user()->role!=1){
+        $cart = auth()->user()->carts()->open()->latest()->first();
+        $cart->events();
+        return view('partial.navbar')->with('order', $cart);
+        }                           
     }
 
-     
+    public function cartItems(){
+        $cart = auth()->user()->carts()->open()->latest()->first();
+        return view('compra.resumen')->with('order', $cart);
+        
+    }
+
+    public function finish(){
+        
+        $cart = auth()->user()->carts()->open()->latest()->first();
+        $cart->purchased_at=\Carbon\Carbon::now();
+        $cart->total_price=$cart->events()->sum('total_event');
+        $cart->save();
+        return redirect('/');
+        
+    }
+
+    public function listadoOrdenes(){
+        $user = auth()->user();
+        $cart = auth()->user()->carts()->whereNotNull('purchased_at')->get();
+
+        return view('user.perfil')->with('user',$user)
+                                  ->with('order', $cart);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+        
     public function addItem($id, Request $req)
     {
         /*$cart = auth()->user()->carts()->create(['total_price' => 0]);
         $item = $cart->events()->attach($id, ['qty' => 1, 'price' => 1]);*/ 
         
         $event = Event::find($id);
+        $cart = auth()->user()->carts()->open()->latest()->first();
+
+        if (! $cart) {
+            $cart = auth()->user()->carts()->create(['total_price' => 0]);
+        }
+
+        // purchased_at (TIMESTAMP)
         $qty = $req->get('quantity');
-
-        $total_event = $qty*$event->price;
-
-        $cart = auth()->user()->carts()->create(['total_price' => 0]);
-        /*dd($cart);*/
-        $cart->events()->attach($id, ['qty' => $qty, 'price' => $total_event]);
-        /*dd($item);*/
-        return view('compra.resumen')->with('events', $event)
-                                     ->with('order', $cart);
-                                     /*->with('item',$item);*/
-    }                           
+        
+        $total_event = $qty * $event->price;
+    
+            $cart->events()->sync(array($id => array(
+            'qty' => $qty, 
+            'price' => $event->price,
+            'total_event' => $total_event)
+            ),false);
+        
+        return view('compra.resumen')->with('order', $cart);
+                                 
+    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -90,9 +124,11 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function removeItem($id)
     {
-
+        $cart = auth()->user()->carts()->open()->latest()->first();
+        $cart->events()->detach($id);
+        return view('compra.resumen')->with('order', $cart);
     }
 
     /**

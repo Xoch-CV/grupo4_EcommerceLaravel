@@ -56,7 +56,7 @@
             <br>
             <div class="row">
               <div class="col-12 col-sm-12 col-md-4 col-lg-6">
-                <input type="submit" value='Agregar al carrito' class="button"></input>
+                <input type="submit" value='Agregar al carrito' class="button" name='add'>
               </div>
             </form> 
               <div class="col-12 col-sm-12 col-md-4 col-lg-6">
@@ -71,7 +71,9 @@
         {{--Boton comprar que redirigue al usuario visitando a loggearse para realizar comprar--}}
         {{--<a href="{{ route('login') }}">Agregar al carrito-sin-loguear</a>--}}
           <div class="col-6 col-sm-6 col-md-6 col-lg-3">
-          <a class="button" href="{{ route('login') }}">comprar entrada</a>
+          <a class="button" href="{{ route('login') }}">
+            
+          comprar entrada</a>
           </div>
       @endauth
     @endif

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cart;
 use App\Event;
+use Auth;
 use App\Category;
 
 class CategoriesController extends Controller
@@ -31,7 +33,6 @@ class CategoriesController extends Controller
                 if ($request->has('q')) {
                     $qb->where('name', 'like', '%' . $request->get('q') . '%');
                 }
-
                 return $qb;
             }])
             ->where('name', $categoryName)->first();

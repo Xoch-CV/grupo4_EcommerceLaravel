@@ -10,10 +10,6 @@
             <div class="col-10 col-sm-10 col-md-10 col-lg-8">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
-
-                        
-
                         <!-- Email -->
                         <div class="form-group row ">
                             <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
@@ -26,10 +22,6 @@
                                 @enderror
                             </div>
                         </div>
-
-
-
-
                         <!-- Pass -->
                         <div class="form-group row">
                             <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
@@ -42,9 +34,6 @@
                             @enderror
                             </div>
                         </div>
-
-
-
                         <!-- Check box -->
                         <div class="form-group row ">
                             <div class="col-11 col-sm-12 col-md-10 col-lg-5 checkbox">
@@ -56,7 +45,6 @@
                             </div>
                             </div>
                         </div>
-
 
                         <!-- Botones -->
                         <div class="row botonera-login">

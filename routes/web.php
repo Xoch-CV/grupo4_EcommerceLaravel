@@ -10,9 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/*|---------------------------CategoriesController------------------------|*/
 Route::get('/', 'CategoriesController@index');
+
 Route::get('/categories/{categoryName}', 'CategoriesController@show');
 Route::get('/categories/{categoryName}', 'CategoriesController@indexReq');
+
+/*|---------------------------EventsController------------------------|*/
+Route::get('/inicio', 'EventsController@start');
 
 Route::get('/events', 'EventsController@index');
 Route::get('/events/new', 'EventsController@create');//->middleware('auth','role:1');
@@ -22,12 +28,17 @@ Route::delete('/events/{idevent}','EventsController@destroy');//->middleware('au
 Route::get('/events/{event}/edit','EventsController@edit');//->middleware('auth','role:1');
 Route::patch('/events/{idevent}', 'EventsController@update');
 
+/*|---------------------------CartController------------------------|*/
+Route::get('/cart','CartController@cartitems');
 
-Route::get('/compra/resumen','CartController@index');
-//Route::post('/compra/{id}','CartController@addItem');
+Route::post('/compra/{id}','CartController@addItem');
+Route::delete('/compra/{id}','CartController@removeItem');
+Route::get('/compra','CartController@finish');
 
+Route::get('/profile','CartController@listadoOrdenes');
 
-
+/*|---------------------------AuthController------------------------|*/
 Auth::routes();
 
+/*|---------------------------HomeController------------------------|*/
 Route::get('/home', 'HomeController@index')->name('home');

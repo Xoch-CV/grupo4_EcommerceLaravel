@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
-use APP\User;
+use Auth;
 
 class EventsController extends Controller
 {
+    public function start(){
+        if (Auth::user()->role==1){
+        return redirect ('/events');
+        }
+        return redirect ('/');
+    }
+  
     /**
      * Display a listing of the resource.
      *

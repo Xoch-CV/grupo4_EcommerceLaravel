@@ -46,14 +46,16 @@ class NewTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->float('total_price');
             $table->timestamps();
+            //$table->datetime('purchased_at')->nullable();
         });
 
         Schema::create('cart_event', function (Blueprint $table){
             $table->bigIncrements('id');
-            $table->Integer('qty');
+            $table->Integer('qty')->nullable();
+            //$table->float('total_event')->nullable();
             $table->unsignedBigInteger('cart_id');
             $table->unsignedBigInteger('event_id');
-            $table->float('price');
+            $table->float('price')->nullable();
             $table->timestamps();
 
             $table->foreign('cart_id')->references('id')->on('carts');
