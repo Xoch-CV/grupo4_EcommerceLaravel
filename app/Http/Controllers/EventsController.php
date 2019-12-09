@@ -14,7 +14,7 @@ class EventsController extends Controller
         }
         return redirect ('/');
     }
-  
+
     /**
      * Display a listing of the resource.
      *
@@ -23,13 +23,15 @@ class EventsController extends Controller
     public function index(Request $request)
     {
         if($request->has('q')){
-          $events = Event::where('name', 'like', '%' . $request->get('q') . '%')->paginate(10)->appends($request ->only('q'));
+          $events = Event::where('name', 'like', '%' . $request->get('q') . '%')
+            ->paginate(10)
+            ->appends($request ->only('q'));
         }
         else{
-        $events = Event::paginate(10)->appends($request->only('q'));
-        } 
-        return view("/listado")->with("events", $events);
-        //return view("listado", compact("events"));
+          $events = Event::paginate(10)->appends($request->only('q'));
+        }
+
+        return view("listado")->with("events", $events);
     }
 
     /**
@@ -88,7 +90,7 @@ class EventsController extends Controller
      */
     public function show(Event $event)
     {
-     
+
       //$this->authorize('edit', $event);
       return view("/detalle")->with("event", $event);
 
@@ -151,7 +153,7 @@ class EventsController extends Controller
       $events=Event::find($req->get('id'));
 
       $this->authorize('destroy', $events);
-        
+
       $events->delete();
 
       return redirect('/events');

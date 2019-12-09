@@ -12,33 +12,36 @@
 */
 
 /*|---------------------------CategoriesController------------------------|*/
-Route::get('/', 'CategoriesController@index');
 
-Route::get('/categories/{categoryName}', 'CategoriesController@show');
-Route::get('/categories/{categoryName}', 'CategoriesController@indexReq');
+Route::group(['middleware' => 'cart'], function () {
+  Route::get('/', 'CategoriesController@index');
 
-/*|---------------------------EventsController------------------------|*/
-Route::get('/inicio', 'EventsController@start');
+  Route::get('/categories/{categoryName}', 'CategoriesController@show');
+  Route::get('/categories/{categoryName}', 'CategoriesController@indexReq');
 
-Route::get('/events', 'EventsController@index');
-Route::get('/events/new', 'EventsController@create');//->middleware('auth','role:1');
-Route::post('/events', 'EventsController@store'); //419 el form falta directiva @csrf
-Route::get('/events/{event}','EventsController@show');
-Route::delete('/events/{idevent}','EventsController@destroy');//->middleware('auth','role:1');
-Route::get('/events/{event}/edit','EventsController@edit');//->middleware('auth','role:1');
-Route::patch('/events/{idevent}', 'EventsController@update');
+  /*|---------------------------EventsController------------------------|*/
+  Route::get('/inicio', 'EventsController@start');
 
-/*|---------------------------CartController------------------------|*/
-Route::get('/cart','CartController@cartitems');
+  Route::get('/events', 'EventsController@index');
+  Route::get('/events/new', 'EventsController@create');//->middleware('auth','role:1');
+  Route::post('/events', 'EventsController@store'); //419 el form falta directiva @csrf
+  Route::get('/events/{event}','EventsController@show');
+  Route::delete('/events/{idevent}','EventsController@destroy');//->middleware('auth','role:1');
+  Route::get('/events/{event}/edit','EventsController@edit');//->middleware('auth','role:1');
+  Route::patch('/events/{idevent}', 'EventsController@update');
 
-Route::post('/compra/{id}','CartController@addItem');
-Route::delete('/compra/{id}','CartController@removeItem');
-Route::get('/compra','CartController@finish');
+  /*|---------------------------CartController------------------------|*/
+  Route::get('/cart','CartController@cartitems');
 
-Route::get('/profile','CartController@listadoOrdenes');
+  Route::post('/compra/{id}','CartController@addItem');
+  Route::delete('/compra/{id}','CartController@removeItem');
+  Route::get('/compra','CartController@finish');
 
-/*|---------------------------AuthController------------------------|*/
-Auth::routes();
+  Route::get('/profile','CartController@listadoOrdenes');
 
-/*|---------------------------HomeController------------------------|*/
-Route::get('/home', 'HomeController@index')->name('home');
+  /*|---------------------------AuthController------------------------|*/
+  Auth::routes();
+
+  /*|---------------------------HomeController------------------------|*/
+  Route::get('/home', 'HomeController@index')->name('home');
+});

@@ -3,8 +3,7 @@
 
 <div class="col-8 buscador">
   <div class="row">
-    <form class="" action="/events/{{request('q')}}" method="get" style="width:100%; align:center">
-    @csrf
+    <form class="" action="/events" method="get" style="width:100%; align:center">
       <div class="inputWithIcon col-12 col-sm-12 col-md-8 col-lg-9" >
         <input type="text" name="q" value="{{request('q')}}" placeholder="Qué querés ir a ver...">
           <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
@@ -15,11 +14,11 @@
     </form>
   </div>
 </div>
-   
-<section>
+
+    <section>
       <div class="divisor col-6 col-lg-2">
       </div>
-      <h4>NOMBRE CATEGORIA</h4>
+      <h4>{{ isset($category) ? $category->name : 'Todas las categorias'}}</h4>
       <div class="row">
         <div class="cards col-12">
         @foreach ($events as $event)
@@ -33,10 +32,8 @@
           @endforeach
         </div>
       </div>
-      
     </section>
 
 
-    
-   
+
 @endsection

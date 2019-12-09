@@ -14,8 +14,10 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view("/main")->with("categories", $categories);
 
+        return view("main")->with([
+          "categories" => $categories,
+        ]);
     }
 
     public function show($categoryName)
@@ -24,7 +26,7 @@ class CategoriesController extends Controller
         $categoryId = Category::where('name', $categoryName)->pluck('id');
         $events=Event::where('category_id','like',$categoryId)->paginate(6);
         return view("/listado")->with("events", $events)->with("category", $categoryName);
-    } 
+    }
 
     public function indexReq($categoryName,Request $request)
     {
@@ -37,11 +39,12 @@ class CategoriesController extends Controller
             }])
             ->where('name', $categoryName)->first();
 
-        return view("/listado")->with(
-            "events", $category->events
+        return view("/listado")->with([
+            "events"=> $category->events,
+            'category'=> $category
                 //->paginate(2)
                 //->appends($request ->only('q'))
-            );
+            ]);
     }
 
 }

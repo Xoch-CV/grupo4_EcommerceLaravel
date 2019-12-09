@@ -3,11 +3,11 @@
 @section('content')
 
   <h3><b>Elementos agregados al carrito</b></h3>
-  <div><p>Items: <b>{{--$order->events->count('pivot')--}}</b></p></div>
-  
+  <div><p>Items: <b>{{$order->events->count('pivot')}}</b></p></div>
+
 
     @foreach ($order->events as $event)
-        
+
         <div>{{ $event->name }}</div>
         <p>Día: <b>{{ $event->initial_date }}</b></p>
         <p>Precio unitario: <b>$ {{ $event->price }}</b></p>

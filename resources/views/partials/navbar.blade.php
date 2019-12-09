@@ -28,8 +28,9 @@
             @auth
             <div id="login" class="login">
               <li class="nav-item2 dropdown">
+
                 @if (Auth::user()->role!=1)
-                <a href="/cart">CARRITO {{--$order->events->count('pivot')--}}</a>
+                <a href="/cart">CARRITO {{$order->events()->count() ?? 0}}</a>
                 @endif
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                   HOLA {{ Auth::user()->name }}!
@@ -48,7 +49,7 @@
                   </div>
               </li>
             </div>
-                
+
                 @else
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">Log in</a>
@@ -63,14 +64,3 @@
       </ul>
     </div>
 </nav>
-
-
-
-
-
-
-
-      
-        
-      
-     
