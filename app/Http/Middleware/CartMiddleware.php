@@ -19,9 +19,9 @@ class CartMiddleware
     {
         if(auth()->check()) {
           $cart = auth()->user()->carts()->open()->latest()->first();
+
         } else {
-          $cart = new Cart;
-        }
+         $cart = new Cart;}
 
         View::share('order', $cart);
 

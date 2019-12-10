@@ -37,11 +37,13 @@ Route::group(['middleware' => 'cart'], function () {
   Route::delete('/compra/{id}','CartController@removeItem');
   Route::get('/compra','CartController@finish');
 
-  Route::get('/profile','CartController@listadoOrdenes');
+
 
   /*|---------------------------AuthController------------------------|*/
-  Auth::routes();
+
 
   /*|---------------------------HomeController------------------------|*/
   Route::get('/home', 'HomeController@index')->name('home');
 });
+  Auth::routes();
+  Route::get('/profile','CartController@listadoOrdenes');

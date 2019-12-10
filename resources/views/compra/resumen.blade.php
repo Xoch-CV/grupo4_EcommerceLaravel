@@ -3,9 +3,7 @@
 @section('content')
 
   <h3><b>Elementos agregados al carrito</b></h3>
-  <div><p>Items: <b>{{$order->events->count('pivot')}}</b></p></div>
-
-
+    @if ($order<>null)
     @foreach ($order->events as $event)
 
         <div>{{ $event->name }}</div>
@@ -34,4 +32,7 @@
     <div class="">
     <a href="/compra">Finalizar compra</a>
     </div>
+  @else
+    <h3><b>No has agregado ningun evento al carrito.</b></h3>
+@endif
 @endsection
