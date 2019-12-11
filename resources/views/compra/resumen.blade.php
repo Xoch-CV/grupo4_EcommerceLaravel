@@ -41,10 +41,14 @@
 
     @endforeach
 </div>
+<div class="resumen">
+
+
     <h3><b>Total de la compra</b></h3>
     <p>Gran total: <b>$ {{ $order->events->sum('pivot.total_event') }}</b></p>
+    </div>
     <div class="">
-    <a href="/compra">Finalizar compra</a>
+    <a class="button" href="{{ url('/compra') }}">Finalizar compra</a>
     </div>
   @else
     <h3><b>No hay elementos agregados al carrito.</b></h3>

@@ -23,9 +23,6 @@
             <div class="carousel-caption">
               <h2>La Odisea de los Giles</h2>
               <p class="lead">Se metieron con los perdedores equivocados.</p>
-              <div class="boton">
-                <input type="submit" value='comprar entrada' class="button"></input>
-              </div>
             </div>
           </div>
           <!-- Segundo slide -->
@@ -33,10 +30,8 @@
             <img src="{{asset('storage/messi-cirque-du-soleil.png')}}" alt="">
             <div class="carousel-caption">
               <h2>Messi 10</h2>
+              
               <p class="lead">El nuevo espectáculo de Cirque du Soleil.</p>
-              <div class="boton">
-                <input type="submit" value='comprar entrada' class="button"></input>
-              </div>
             </div>
           </div>
           <!-- Tercer slide -->
@@ -45,23 +40,20 @@
             <div class="carousel-caption">
               <h2>Metallica</h2>
               <p class="lead">18 de abril. Campo Argentino de Polo.</p>
-              <div class="boton">
-                <input type="submit" value='comprar entrada' class="button"></input>
-              </div>
             </div>
           </div>
         </div>
-        
+
       </div>
-      
+
       <div class="col-8 buscador">
         <div class="row">
 
-          
-      
+
+
           <form class="" action="/events/{{request('q')}}" method="get" style="width:100%; align:center">
           @csrf
-          
+
             <div class="inputWithIcon col-12 col-sm-12 col-md-8 col-lg-9" >
               <input type="text" name="q" value="{{request('q')}}" placeholder="Qué querés ir a ver...">
               <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
@@ -69,10 +61,10 @@
             <div class="col-12 col-sm-12 col-md-4 col-lg-3 boton">
             <input type="submit" value='Buscar' class="button"></input>
             </div>
-          
+
           </form>
 
-          
+
 
         </div>
       </div>

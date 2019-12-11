@@ -19,19 +19,19 @@
       <div class="divisor col-6 col-lg-2">
       </div>
       <h4>{{ isset($category) ? $category->name : 'Todas las categorias'}}</h4>
-      
+
       <div class="row busqueda">
       @foreach ($events as $event)
-      
+
       <div class="col-12 col-sm-10 col-md-6 col-lg-3 listado">
         <div class="card">
 
           <div class="contenedor">
             <img src="/storage/imagenesevento/{{$event->image}}" alt="Foto">
-            
+
           </div>
-        
-          
+
+
           <div class="card-body">
             <h3 class="card-title">{{ $event->name }}</h3>
             <p>Día: <b>{{\Carbon\Carbon::parse($event->initial_date)->locale('es')->isoFormat("LL")}}</b></p>
@@ -41,11 +41,12 @@
 
         </div>
       </div>
-      
+
   @endforeach
 </div>
 
-  
+@if (Route::has('login'))
+@auth
 @if (Auth::user()->role==1)
             <div class="row detalle">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 crear">
@@ -55,7 +56,14 @@
                     </form>
                 </div>
             </div>
-      @endif
+          @else
+          <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+        <a class="button" href="{{ route('login') }}">
+        comprar entrada</a>
+        </div>
+        @endif
+          @endauth
+          @endif
 
     </section>
 

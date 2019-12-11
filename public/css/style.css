@@ -59,7 +59,7 @@ body::after {
 .crear. .button2{
   display: flex;
   flex-direction: row;
-  align-content: center;  
+  align-content: center;
   align-items: center;
   justify-content: center;
 }
@@ -308,7 +308,7 @@ input[type="text"]::placeholder{
   position: relative;
   text-align: center;
   float: left;
-  
+
 }
 .inputWithIcon i{
   position: absolute;
@@ -367,6 +367,16 @@ input[type="text"]::placeholder{
   background-color:#581845;
   color: #fff;
 }
+
+.resumen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+
 .button2{
   /*border-radius: 10px;
   width: 200px;
@@ -391,6 +401,18 @@ input[type="text"]::placeholder{
   text-decoration: none;
   color: #581845;
 }
+
+.button3:hover{
+  background-color: #fff;
+  text-decoration: none;
+  color: #581845;
+}
+
+.button2:hover{
+  background-color: #fff;
+  color: #581845;
+}
+
 .cards{
   flex-wrap: wrap;
   display: flex;
@@ -594,7 +616,7 @@ ul.footer li a:hover{
   .card-img-top{
     width: 100%;
   }
-  
+
   ul.principal{
     margin: 50px 0 50px 0;
   }
@@ -621,5 +643,8 @@ ul.footer li a:hover{
     color: #000;
     margin: 20px auto;
   }
-    
+.resumen {
+  display: flex;
+  justify-content: center;
+}
   }

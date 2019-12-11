@@ -18,7 +18,9 @@ Route::group(['middleware' => 'cart'], function () {
 
   Route::get('/categories/{categoryName}', 'CategoriesController@show');
   Route::get('/categories/{categoryName}', 'CategoriesController@indexReq');
-
+  Route::get('/preguntas', function () {
+    return view('preguntas');
+});
   /*|---------------------------EventsController------------------------|*/
   Route::get('/inicio', 'EventsController@start');
 

@@ -16,7 +16,7 @@
 
         @foreach ($order->events as $orderevents)
           <div><p>Nombre evento: <b>{{$orderevents->name}}</b></p></div>
-          <div><p>Cantidad: <b>{{$orderevents->pivot->qty}}</b></p></div>
+          <div><p>Tickets: <b>{{$orderevents->pivot->qty}}</b></p></div>
           <div><p>Subtotal: <b>{{$orderevents->pivot->total_event}}</b></p></div>
         @endforeach
         <div><p>Total: <b>{{ $order->total_price }}</b></p></div>
