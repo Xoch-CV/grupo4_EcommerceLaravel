@@ -35,11 +35,11 @@
           </form>
           @endif--}}
         @else
-        <div class="row">          
+        <div class="row">
           <form action="/compra/{{$event->id}}" method="post">
           @csrf
             <div class="">
-              <label for="quantiy">Cantidad tickets</label>
+              <label for="quantity">Cantidad tickets</label>
               <select name="quantity">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -58,7 +58,7 @@
               <div class="col-12 col-sm-12 col-md-4 col-lg-6">
                 <input type="submit" value='Agregar al carrito' class="button" name='add'>
               </div>
-            </form> 
+            </form>
               <div class="col-12 col-sm-12 col-md-4 col-lg-6">
               {{--<a href="{{ url('/') }}">Ver más eventos</a>--}}
                 <a class="button2" href="{{ url('/') }}">Ver más eventos</a>
@@ -72,7 +72,7 @@
         {{--<a href="{{ route('login') }}">Agregar al carrito-sin-loguear</a>--}}
           <div class="col-6 col-sm-6 col-md-6 col-lg-3">
           <a class="button" href="{{ route('login') }}">
-            
+
           comprar entrada</a>
           </div>
       @endauth
