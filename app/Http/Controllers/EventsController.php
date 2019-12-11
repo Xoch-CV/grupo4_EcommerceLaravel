@@ -134,7 +134,7 @@ class EventsController extends Controller
         "integer" => "El campo :attribute debe ser entero.",
         "date" => "El campo :attribute debe ser una fecha."
       ];
-
+       
       $this->validate($req, $reglas, $mensaje);
 
         Event::find($idevent)->update($req->all());
