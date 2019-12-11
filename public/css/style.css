@@ -109,6 +109,7 @@ h4{
   text-align: center;
   margin-bottom: 30px;
   font-weight: 600;
+  color: #fff;
 }
 h5{
   font-size: 1em;
@@ -227,7 +228,6 @@ section{
   overflow: hidden;
   box-sizing: border-box;
   margin: auto;
-  background-color: #eee;
   color: #333;
 }
 .signup{
@@ -248,10 +248,21 @@ input{
   min-height: 350px;
   text-transform: uppercase;
 }
+.recomendados{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .recomendados img{
   display:block;
   margin:auto;
   width: 100%;
+}
+.busqueda{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 .slide{
   border-top: 2px solid #581845;
@@ -389,6 +400,9 @@ input[type="text"]::placeholder{
 .card-body{
   padding: 15px 0;
   width: auto;
+  margin: 15px;
+  background-color: #fff;
+  border-radius:10px;
 }
 .compra .card-body{
   padding: 0;
@@ -568,7 +582,6 @@ ul.footer li a:hover{
     width: 100%;
   }
   .card-title{
-    height: 50px;
     text-align: left;
   }
   .card-img-top{

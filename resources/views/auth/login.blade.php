@@ -24,7 +24,7 @@
             </div>
             <div class="col-10 col-sm-12 col-md-8 col-lg-4 botonera-login">
                 <div class="row" style="display: flex; flex-direction: row; justify-content: space-between;">
-                    <input class="button2" type="submit" name="boton" value="{{ __('Login') }}">
+                    <button class="button2" type="submit" name="boton" value="{{ __('Login') }}">Log in</button>
                     <a class="button" href="{{ route('register') }}">Sign up</a>
                 </div>
             </div>

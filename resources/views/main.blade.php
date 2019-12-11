@@ -105,14 +105,13 @@
         <div class="row recomendados">
           @foreach ($events as $event)
 
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 card-body">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-5 card-body">
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                   <img src="/storage/imagenesevento/{{$event->image}}" alt="{{$event->name}}">
                 </div>
                 <div class="col-12 col-sm-12 col-md-7 col-lg-8">
-                  <h5 class="card-title">{{$event->name}}</h5>
-                  <p>{{$event->description}}
+                  <h3 class="card-title"><b>{{$event->name}}</b></h3>
                   <p>{{\Carbon\Carbon::parse($event->initial_date)->locale('es')->isoFormat("LL")}}</p>
                   <p>Precio: {{$event->price}}</p>
                 </div>
