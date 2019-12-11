@@ -36,7 +36,7 @@ Route::group(['middleware' => 'cart'], function () {
   Route::post('/compra/{id}','CartController@addItem');
   Route::delete('/compra/{id}','CartController@removeItem');
   Route::get('/compra','CartController@finish');
-  Auth::routes();
+  Auth::routes(['verify'=>true]);
   Route::get('/profile','CartController@listadoOrdenes');
 
 

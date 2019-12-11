@@ -27,6 +27,13 @@
                     <input class="button2" type="submit" name="boton" value="{{ __('Login') }}">
                     <a class="button" href="{{ route('register') }}">Sign up</a>
                 </div>
+                <div class="col-11 col-sm-12 col-md-10 col-lg-11">
+                    @if (Route::has('password.request'))
+                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                            {{ __('Olvidaste tu contraseña?') }}
+                        </a>
+                    @endif
+                </div>
             </div>
         </form>
     </div>

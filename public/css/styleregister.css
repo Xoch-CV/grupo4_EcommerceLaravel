@@ -18,6 +18,9 @@ body{
   margin: 50px auto;
   box-sizing: border-box;
 }
+.card{
+  background-color: #000;
+}
 .header{
   text-align: center;
 }
@@ -139,7 +142,7 @@ button {
 @media (min-width: 992px){
   img.register{
     display: block;
-  } 
+  }
 .botonera-login{
   width: 100%;
 }
