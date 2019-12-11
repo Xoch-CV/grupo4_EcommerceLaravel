@@ -16,6 +16,11 @@
 Route::group(['middleware' => 'cart'], function () {
   Route::get('/', 'CategoriesController@index');
 
+  Route::get('/init', function () {
+      Artisan::call('storage:link');
+      return 'ready!';
+  });
+
   Route::get('/categories/{categoryName}', 'CategoriesController@show');
   Route::get('/categories/{categoryName}', 'CategoriesController@indexReq');
   Route::get('/preguntas', function () {
