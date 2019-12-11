@@ -36,7 +36,8 @@ Route::group(['middleware' => 'cart'], function () {
   Route::post('/compra/{id}','CartController@addItem');
   Route::delete('/compra/{id}','CartController@removeItem');
   Route::get('/compra','CartController@finish');
-
+  Auth::routes();
+  Route::get('/profile','CartController@listadoOrdenes');
 
 
   /*|---------------------------AuthController------------------------|*/
@@ -45,5 +46,3 @@ Route::group(['middleware' => 'cart'], function () {
   /*|---------------------------HomeController------------------------|*/
   Route::get('/home', 'HomeController@index')->name('home');
 });
-  Auth::routes();
-  Route::get('/profile','CartController@listadoOrdenes');
