@@ -19,7 +19,7 @@
         <div class="carousel-inner" role="listbox">
           <!-- Primer slide -->
           <div class="carousel-item active">
-            <img src="{{asset('storage/la-odisea-de-los-giles.jpg')}}" alt="">
+            <img src="{{asset('storage/Slider-01.jpg')}}" alt="">
             <div class="carousel-caption">
               <h2>La Odisea de los Giles</h2>
               <p class="lead">Se metieron con los perdedores equivocados.</p>
@@ -27,16 +27,16 @@
           </div>
           <!-- Segundo slide -->
           <div class="carousel-item">
-            <img src="{{asset('storage/messi-cirque-du-soleil.png')}}" alt="">
+            <img src="{{asset('storage/Slider-02.jpg')}}" alt="">
             <div class="carousel-caption">
               <h2>Messi 10</h2>
-              
+
               <p class="lead">El nuevo espectáculo de Cirque du Soleil.</p>
             </div>
           </div>
           <!-- Tercer slide -->
           <div class="carousel-item">
-          <img src="{{asset('storage/metallica2017.jpg')}}" alt="">
+          <img src="{{asset('storage/Slider-03.jpg')}}" alt="">
             <div class="carousel-caption">
               <h2>Metallica</h2>
               <p class="lead">18 de abril. Campo Argentino de Polo.</p>
