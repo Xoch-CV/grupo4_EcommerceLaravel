@@ -5,6 +5,7 @@
   <h3><b>Elementos agregados al carrito</b></h3>
 
   <div class="row compra">
+    @if(is_object($order))
     @foreach ($order->events as $event)
 
         <div class="col-12 col-sm-10 col-md-6 col-lg-3">
@@ -39,13 +40,13 @@
         </div>
 
     @endforeach
-    </div>
-
+</div>
     <h3><b>Total de la compra</b></h3>
     <p>Gran total: <b>$ {{ $order->events->sum('pivot.total_event') }}</b></p>
     <div class="">
     <a href="/compra">Finalizar compra</a>
     </div>
-
-
+  @else
+    <h3><b>No hay elementos agregados al carrito.</b></h3>
+@endif
 @endsection
