@@ -30,7 +30,7 @@
               <li class="nav-item2 dropdown">
                 @if (Auth::user()->role!=1)
                 <a href="/cart">
-                  @if ($order<>null)
+                  @if ($order<>null && is_object($order))
                   <i class="fas fa-shopping-cart" style="color:white"></i> {{$order->events()->count()}}</a>
                    @else
                     </a>

@@ -88,12 +88,12 @@ class EventsController extends Controller
         $eventoNuevo->user_id=1;
 
         $eventoNuevo->save();
-        
+
         return view('/detalle')->with("event", $eventoNuevo);
-        
+
         /*Event::create($request->all());*/
 
-        
+
     }
 
     /**
@@ -163,11 +163,11 @@ class EventsController extends Controller
       $eventoObjeto->price=$request["price"];
       $eventoObjeto->category_id=$request["category_id"];
       $eventoObjeto->user_id=1;
-    
-      
+
+
     $eventoArray = $eventoObjeto->toArray();
-     
-     
+
+
         Event::find($idevent)->update($eventoArray);
         return view('/detalle')->with("event", $eventoObjeto);
 
@@ -185,7 +185,7 @@ class EventsController extends Controller
 
       $this->authorize('destroy', $events);
       $events->delete();
-      
+
       return redirect('/events');
     }
     }

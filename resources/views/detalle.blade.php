@@ -35,7 +35,7 @@
                 </div>
             </div>
             @else
-            <div class="row">          
+            <div class="row">
                 <form action="/compra/{{$event->id}}" method="post">
                 @csrf
                 <div class="">
@@ -43,15 +43,15 @@
               <select name="quantity">
               @for ($i = 0; $i <= 10; $i++)
               <option value="{{$i}}">{{ $i }}</option>
-              @endfor 
-             
+              @endfor
+
               </select>
             </div>
             <div class="row">
               <div class="col-12 col-sm-12 col-md-4 col-lg-6">
                 <input type="submit" value='Agregar al carrito' class="button2" name='add'>
               </div>
-            </form> 
+            </form>
               <div class="col-12 col-sm-12 col-md-4 col-lg-6">
               {{--<a href="{{ url('/') }}">Ver más eventos</a>--}}
                 <a class="button3" href="{{ url('/') }}">Ver más eventos</a>
