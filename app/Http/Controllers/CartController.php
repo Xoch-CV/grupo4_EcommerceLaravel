@@ -65,7 +65,6 @@ class CartController extends Controller
 
         // purchased_at (TIMESTAMP)
         $qty = $req->get('quantity');
-
         $total_event = $qty * $event->price;
 
             $cart->events()->sync(array($id => array(

@@ -36,6 +36,7 @@ class NewTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->string('image')->nullable();
 
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('user_id')->references('id')->on('users');
@@ -46,13 +47,13 @@ class NewTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->float('total_price');
             $table->timestamps();
-            //$table->datetime('purchased_at')->nullable();
+            $table->datetime('purchased_at')->nullable();
         });
 
         Schema::create('cart_event', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->Integer('qty')->nullable();
-            //$table->float('total_event')->nullable();
+            $table->float('total_event')->nullable();
             $table->unsignedBigInteger('cart_id');
             $table->unsignedBigInteger('event_id');
             $table->float('price')->nullable();

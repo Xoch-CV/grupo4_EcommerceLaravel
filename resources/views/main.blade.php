@@ -20,7 +20,6 @@
           <!-- Primer slide -->
           <div class="carousel-item active">
             <img src="{{asset('storage/la-odisea-de-los-giles.jpg')}}" alt="">
-            <img src="img/la-odisea-de-los-giles.jpg" alt="">
             <div class="carousel-caption">
               <h2>La Odisea de los Giles</h2>
               <p class="lead">Se metieron con los perdedores equivocados.</p>
@@ -78,7 +77,7 @@
         </div>
       </div>
 
-        <div class="row">
+      <div class="row">
           <div class="col-lg-1">
           </div>
           <div class="col-lg-10">
@@ -96,41 +95,35 @@
     </main>
 
 
- <section>
+    <section>
       <div class="divisor col-6 col-lg-2">
       </div>
+
+
       <h4>Recomendados</h4>
-      <div class="row">
-        <div class="cards col-12">
-          <div class="col-6 col-lg-2">
-            <img src="img/puro-disenio.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Feria Puro Diseño</h5>
-              <a href="#" class="btn-cards">Ver más</a>
+
+        <div class="row recomendados">
+          @foreach ($events as $event)
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 card-body">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-3">
+                  <img src="/storage/imagenesevento/{{$event->image}}" alt="{{$event->name}}">
+                </div>
+                <div class="col-12 col-sm-12 col-md-7 col-lg-8">
+                  <h5 class="card-title">{{$event->name}}</h5>
+                  <p>{{$event->description}}
+                  <p>{{\Carbon\Carbon::parse($event->initial_date)->locale('es')->isoFormat("LL")}}</p>
+                  <p>Precio: {{$event->price}}</p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-1 col-lg-1 boton">
+                  <a href="{{ url('events/' . $event->id) }}" class="btn-cards"><i class="fas fa-search-plus fa-2x"></i></a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-6 col-lg-2">
-            <img src="img/elmato.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">El Mató a un Policía Motorizado</h5>
-              <a href="#" class="btn-cards">Ver más</a>
-            </div>
-          </div>
-          <div class="col-6 col-lg-2">
-            <img src="img/motogp.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Moto GP</h5>
-              <a href="#" class="btn-cards">Ver más</a>
-            </div>
-          </div>
-          <div class="col-6 col-lg-2">
-            <img src="img/volar.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Enrique piñeyro</h5>
-              <a href="#" class="btn-cards">Ver más</a>
-            </div>
-          </div>
+
+          @endforeach
         </div>
-      </div>
+
     </section>
  @endsection

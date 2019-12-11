@@ -14,10 +14,8 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::all();
-
-        return view("main")->with([
-          "categories" => $categories,
-        ]);
+        $events = Event::orderBy('initial_date', 'DESC')->take(4)->get();
+        return view("/main")->with("categories", $categories)->with("events", $events);
     }
 
     public function show($categoryName)

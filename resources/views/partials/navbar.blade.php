@@ -31,13 +31,12 @@
                 @if (Auth::user()->role!=1)
                 <a href="/cart">
                   @if ($order<>null)
-                    CARRITO {{$order->events()->count()}}</a>
+                  <i class="fas fa-shopping-cart" style="color:white"></i> {{$order->events()->count()}}</a>
                    @else
                     </a>
 
                   @endif
 
-                   {{-- $order->events()->count() ?? 0 --}}
                 @endif
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                   HOLA {{ Auth::user()->name }}!
