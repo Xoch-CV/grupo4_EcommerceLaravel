@@ -47,7 +47,6 @@ body::after {
   background-color: #581845;
   border-radius: 50px;
   margin: 25px auto;
-  padding: 0 0 0 0;
   height: 50px;
   width: 150px;
   display: flex;
@@ -55,8 +54,15 @@ body::after {
   justify-content: center;
   box-sizing: border-box;
   font-size: 14px;
+  color: #fff;
 }
-
+.crear. .button2{
+  display: flex;
+  flex-direction: row;
+  align-content: center;  
+  align-items: center;
+  justify-content: center;
+}
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
@@ -389,6 +395,7 @@ input[type="text"]::placeholder{
   flex-wrap: wrap;
   display: flex;
   justify-content: space-around;
+  margin: 25px;
 }
 .card-img-top{
   width: 75%;
@@ -525,7 +532,7 @@ ul.footer li a:hover{
   display: flex;
   flex-direction: row;
   align-content: space-around;
-  text-align: center;
+  margin-bottom:25px
 }
 #listado a{
   text-decoration: none;

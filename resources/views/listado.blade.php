@@ -19,10 +19,11 @@
       <div class="divisor col-6 col-lg-2">
       </div>
       <h4>{{ isset($category) ? $category->name : 'Todas las categorias'}}</h4>
+      
       <div class="row busqueda">
       @foreach ($events as $event)
       
-      <div class="col-12 col-sm-10 col-md-6 col-lg-3">
+      <div class="col-12 col-sm-10 col-md-6 col-lg-3 listado">
         <div class="card">
 
           <div class="contenedor">
@@ -43,6 +44,18 @@
       
   @endforeach
 </div>
+
+  
+@if (Auth::user()->role==1)
+            <div class="row detalle">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 crear">
+                    <form class="" action="/events/new" method="get">
+                    <input type="hidden" name="id" value="">
+                    <input class="button2" type="submit" name="" value="Crear Evento">
+                    </form>
+                </div>
+            </div>
+      @endif
 
     </section>
 
