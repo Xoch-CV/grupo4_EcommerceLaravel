@@ -3,11 +3,10 @@
 @section('content')
 
   <h3><b>Elementos agregados al carrito</b></h3>
-  <div><p>Compras pendientes: <b>{{$order->events->count('pivot')}}</b></p></div>
 
   <div class="row compra">
     @foreach ($order->events as $event)
-      
+
         <div class="col-12 col-sm-10 col-md-6 col-lg-3">
           <div class="card">
 
@@ -19,10 +18,10 @@
               <div class="boton_eliminar"><input type="hidden" name="id" value="{{$event->id}}">
                   <button type="submit" name="" id="botonEliminar" class="button_eliminar" onclick="eliminarSeleccionEvento()"><i class="fas fa-2x fa-times-circle"></i></button>
               </div>
-              </form> 
+              </form>
             </div>
-          
-            
+
+
             <div class="card-body">
               <h3 class="card-title">{{ $event->name }}</h3>
               <p>Día: <b>{{\Carbon\Carbon::parse($event->initial_date)->locale('es')->isoFormat("LL")}}</b></p>
@@ -38,7 +37,7 @@
 
           </div>
         </div>
-        
+
     @endforeach
     </div>
 
@@ -47,6 +46,6 @@
     <div class="">
     <a href="/compra">Finalizar compra</a>
     </div>
-    
+
 
 @endsection
