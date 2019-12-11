@@ -47,7 +47,6 @@ body::after {
   background-color: #581845;
   border-radius: 50px;
   margin: 25px auto;
-  padding: 0 0 0 0;
   height: 50px;
   width: 150px;
   display: flex;
@@ -55,8 +54,15 @@ body::after {
   justify-content: center;
   box-sizing: border-box;
   font-size: 14px;
+  color: #fff;
 }
-
+.crear. .button2{
+  display: flex;
+  flex-direction: row;
+  align-content: center;  
+  align-items: center;
+  justify-content: center;
+}
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
@@ -109,6 +115,7 @@ h4{
   text-align: center;
   margin-bottom: 30px;
   font-weight: 600;
+  color: #fff;
 }
 h5{
   font-size: 1em;
@@ -227,7 +234,6 @@ section{
   overflow: hidden;
   box-sizing: border-box;
   margin: auto;
-  background-color: #eee;
   color: #333;
 }
 .signup{
@@ -248,10 +254,21 @@ input{
   min-height: 350px;
   text-transform: uppercase;
 }
+.recomendados{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .recomendados img{
   display:block;
   margin:auto;
   width: 100%;
+}
+.busqueda{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 .slide{
   border-top: 2px solid #581845;
@@ -378,6 +395,7 @@ input[type="text"]::placeholder{
   flex-wrap: wrap;
   display: flex;
   justify-content: space-around;
+  margin: 25px;
 }
 .card-img-top{
   width: 75%;
@@ -389,6 +407,9 @@ input[type="text"]::placeholder{
 .card-body{
   padding: 15px 0;
   width: auto;
+  margin: 15px;
+  background-color: #fff;
+  border-radius:10px;
 }
 .compra .card-body{
   padding: 0;
@@ -511,7 +532,7 @@ ul.footer li a:hover{
   display: flex;
   flex-direction: row;
   align-content: space-around;
-  text-align: center;
+  margin-bottom:25px
 }
 #listado a{
   text-decoration: none;
@@ -568,7 +589,6 @@ ul.footer li a:hover{
     width: 100%;
   }
   .card-title{
-    height: 50px;
     text-align: left;
   }
   .card-img-top{

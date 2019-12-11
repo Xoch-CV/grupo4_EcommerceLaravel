@@ -55,7 +55,7 @@
                     <!-- Buttons -->
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 ">
-                            <input class="button2" type="submit" name="boton" value="Registrarme">
+                            <button class="button2" type="submit" name="boton" value="Registrarme">Registrarme</button>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                             <a class="button" href={{ route('login') }}>Ya tengo usuario</a>

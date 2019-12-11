@@ -79,6 +79,8 @@ input:focus{
   font-size: 14px;
 }
 .button2{
+  background-color: #581845;
+  color: #fff;
   border-radius: 50px;
   margin: 25px auto;
   padding: 0 0 0 0;
@@ -89,7 +91,23 @@ input:focus{
   justify-content: center;
   box-sizing: border-box;
   font-size: 14px;
-  background-color:#581845;
+}
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  background: none;
+  border: 0;
+  color: inherit;
+  /* cursor: default; */
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-user-select: none; /* for button */
+   -webkit-appearance: button; /* for input */
+     -moz-user-select: none;
+      -ms-user-select: none;
 }
 .button:hover{
   background-color: #fff;
