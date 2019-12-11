@@ -368,6 +368,17 @@ input[type="text"]::placeholder{
   color: #fff;
 }
 
+.cart{
+color:#fff;
+text-decoration: none;
+}
+
+.cart:hover{
+color:#581845;
+text-decoration: none;
+font-weight: bold;
+}
+
 .resumen {
   display: flex;
   align-items: center;
