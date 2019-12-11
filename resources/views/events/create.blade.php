@@ -26,7 +26,7 @@
     <p>{{$errors->first('category_name')}}</p>
 
     <label for="">Imagen</label>
-    <input type="file" name="imagen" value="">
+    <input type="file" name="image" value="">
 
   </div>
   <div class="">

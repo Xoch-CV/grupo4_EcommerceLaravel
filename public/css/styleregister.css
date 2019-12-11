@@ -10,8 +10,8 @@ body{
   background-position: bottom;
   background-size: cover;
 }
-.invalid-feedback{
-  color:white;
+.errors{
+  color:red;
   font-weight: normal;
 }
 .container{
@@ -28,6 +28,9 @@ a{
 a:hover{
   text-decoration: none;
   color: #581845;
+}
+form{
+  width: 100%;
 }
 input{
   border: none;
@@ -48,12 +51,15 @@ input:focus{
   box-sizing: border-box;
   margin: 0 auto;
 }
+.input[type=checkbox]{
+  padding: 0 25px 0 0;
+}
 .checkbox{
-  padding: 25px 10px 0 8px;
+  padding: 25px 0 0 0;
   margin: 0 auto;
 }
 .botonera-login{
-  text-align: center;
+  margin: 0 auto;
 }
 .button{
   border: 1px solid #fff;
@@ -107,6 +113,23 @@ h1{
   padding: 0 0 0 100px;
   margin: 0 auto;
 }
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  background: none;
+  border: 0;
+  color: inherit;
+  /* cursor: default; */
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-user-select: none; /* for button */
+   -webkit-appearance: button; /* for input */
+     -moz-user-select: none;
+      -ms-user-select: none;
+}
 
 @media (min-width: 768px){
   img.register{
@@ -116,5 +139,8 @@ h1{
 @media (min-width: 992px){
   img.register{
     display: block;
-  }
+  } 
+.botonera-login{
+  width: 100%;
+}
 }

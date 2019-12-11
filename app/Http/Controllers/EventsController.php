@@ -60,7 +60,7 @@ class EventsController extends Controller
           "initial_date" => "required|date",
           "ending_date" =>"required|date",
           "price"=> "required|numeric",
-          "category_name"=>"required|string|min:1|max:255",
+          "category_id"=>"required|numeric",
           "image" => "file",
         ];
         $mensaje = [
@@ -73,13 +73,27 @@ class EventsController extends Controller
         ];
 
         $this->validate($request, $reglas, $mensaje);
+        $eventoNuevo = new Event();
 
-        /*$ruta = $request->file('image')->store('public');
+        $ruta = $request->file("image")->store("public/imagenesevento");
         $nombreArchivo = basename($ruta);
-        */
-        Event::create($request->all());
 
-        return redirect ('/events');
+        $eventoNuevo->image=$nombreArchivo;
+        $eventoNuevo->name=$request["name"];
+        $eventoNuevo->description=$request["description"];
+        $eventoNuevo->initial_date=$request["initial_date"];
+        $eventoNuevo->ending_date=$request["ending_date"];
+        $eventoNuevo->price=$request["price"];
+        $eventoNuevo->category_id=$request["category_id"];
+        $eventoNuevo->user_id=1;
+
+        $eventoNuevo->save();
+
+        return view('/detalle')->with("event", $eventoNuevo);
+
+        /*Event::create($request->all());*/
+
+
     }
 
     /**
@@ -92,7 +106,7 @@ class EventsController extends Controller
     {
 
       //$this->authorize('edit', $event);
-      return view("/detalle")->with("event", $event);
+      return view("detalle")->with("event", $event);
 
     }
 
@@ -116,7 +130,7 @@ class EventsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $req, $idevent)
+    public function update(Request $request, $idevent)
     {
       $reglas = [
         "name" => "required|string|min:1|max:255",
@@ -124,7 +138,8 @@ class EventsController extends Controller
         "initial_date" => "required|date",
         "ending_date" =>"required|date",
         "price"=> "required|numeric",
-        "category_id"=>"required|integer|min:1|max:5"
+        "category_id"=>"required|integer|min:1|max:5",
+        "image" => "file",
       ];
       $mensaje = [
         "required" => "El campo :attribute es obligatorio.",
@@ -134,11 +149,27 @@ class EventsController extends Controller
         "integer" => "El campo :attribute debe ser entero.",
         "date" => "El campo :attribute debe ser una fecha."
       ];
-       
-      $this->validate($req, $reglas, $mensaje);
 
-        Event::find($idevent)->update($req->all());
-        return redirect('/events');
+      $this->validate($request, $reglas, $mensaje);
+      $eventoObjeto = new Event();
+      $ruta = $request->file("image")->store("public/imagenesevento");
+      $nombreArchivo = basename($ruta);
+
+      $eventoObjeto->image=$nombreArchivo;
+      $eventoObjeto->name=$request["name"];
+      $eventoObjeto->description=$request["description"];
+      $eventoObjeto->initial_date=$request["initial_date"];
+      $eventoObjeto->ending_date=$request["ending_date"];
+      $eventoObjeto->price=$request["price"];
+      $eventoObjeto->category_id=$request["category_id"];
+      $eventoObjeto->user_id=1;
+
+
+    $eventoArray = $eventoObjeto->toArray();
+
+
+        Event::find($idevent)->update($eventoArray);
+        return view('/detalle')->with("event", $eventoObjeto);
 
     }
 
@@ -153,7 +184,6 @@ class EventsController extends Controller
       $events=Event::find($req->get('id'));
 
       $this->authorize('destroy', $events);
-
       $events->delete();
 
       return redirect('/events');
